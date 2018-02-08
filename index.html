@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<title>vue-toast-y</title>
+	<style>
+		.btn {
+			width: 120px;
+			height: 30px;
+			line-height: 30px;
+			text-align: center;
+			margin: 30px auto;
+			border-radius: 5px;
+
+		}
+		.btn1 {
+			margin-top: 150px;
+			border: 1px solid #b2b1b1;
+			color: #333;
+		}
+		.btn2 {
+			background-color: #337ab7;
+			color: #fff;
+		}
+		.btn3 {
+			background-color: #5bc0de;
+			color: #fff;
+		}
+		.btn4 {
+			background-color: #449d44;
+			color: #fff;
+		}
+		.btn5 {
+			background-color: #f0ad4e;
+			color: #fff;
+		}
+		.btn6 {
+			background-color: #c9302c;
+			color: #fff;
+		}
+	</style>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+	<script type="text/javascript" src="./dist/vue-toast-y.min.js"></script>
+</head>
+<body>
+	<div id="app">
+		<div class="btn btn1" v-on:click="center">center</div>
+		<div class="btn btn2" v-on:click="top">top</div>
+		<div class="btn btn3" v-on:click="bottom">bottom</div>
+		<div class="btn btn4" v-on:click="cb">callback</div>
+		<div class="btn btn5" v-on:click="down">down</div>
+		<div class="btn btn6" v-on:click="up">up</div>
+	</div>
+
+	<script>
+	  var app = new Vue({
+	  	el: "#app",
+	  	data: {},
+	  	methods: {
+		  center: function () {
+		  	this.$toast.show("hello world!");
+		  },
+		  top: function () {
+			this.$toast.show("hello world!", { position: "top" });
+		  },
+		  bottom: function () {
+		  	this.$toast.show("hello world!", { position: "bottom" });
+		  },
+		  cb: function () {
+		  	this.$toast.show("hello world!", {}, function () {
+		  	  alert("callback");
+		  	});
+		  },
+		  down: function () {
+		  	this.$toast.show("hello world!", {});
+		  },
+		  up: function () {
+		  	this.$toast.show("hello world!", { direction: "up" });
+		  }
+	  	}
+	  });
+	</script>
+</body>
+</html>
